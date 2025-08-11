@@ -1,0 +1,13 @@
+name: prt-labeler
+
+on:
+  pull_request_target:
+    types: [opened, synchronize, reopened, edited]
+
+jobs:
+  debug-event:
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Notify the Run
+        run: |
+          echo "Job is Running"
