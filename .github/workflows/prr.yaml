@@ -1,0 +1,13 @@
+name: run-build-tests
+on:
+  pull_request_review:
+    types: [submitted]
+
+jobs:
+  test:
+    if: github.event.review.type == 'pull_request_review_approved'
+    runs-on: ubuntu-24.04
+    steps:
+      - run: echo "$EVENT"
+        env:
+          EVENT: ${{toJSON(github)}}
